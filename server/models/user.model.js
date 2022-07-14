@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -57,6 +58,11 @@ userSchema.methods.genAuthToken = function () {
   });
 
   return token;
+};
+
+userSchema.methods.comparePassword = async function (candidate) {
+  const match = await bcrypt.compare(candidate, this.password);
+  return match;
 };
 
 const User = mongoose.model("User", userSchema);

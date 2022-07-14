@@ -4,6 +4,8 @@
     "mongoURI": "mongodb://localhost:27017"
   },
   "errors": {
-    "emailTaken": "Email is already taken"
+    "emailTaken": "Email is already taken",
+    "emailNotUsed": "",
+    "incorrectCredentials": "Incorrect email or password"
   }
 }
