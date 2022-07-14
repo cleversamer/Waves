@@ -4,8 +4,9 @@ module.exports.register = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const user = await authService.createUser(email, password);
+    const token = user.genAuthToken();
 
-    res.status(200).json({ user });
+    res.cookie("x-access-token", token).status(200).json({ user });
   } catch (err) {
     res.status(400).json({ mssg: err.message });
   }

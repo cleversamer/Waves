@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -48,6 +49,15 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
 });
+
+userSchema.methods.genAuthToken = function () {
+  const body = { sub: this._id.toHexString() };
+  const token = jwt.sign(body, process.env["JWT_PRIVATE_KEY"], {
+    expiresIn: "1d",
+  });
+
+  return token;
+};
 
 const User = mongoose.model("User", userSchema);
 
