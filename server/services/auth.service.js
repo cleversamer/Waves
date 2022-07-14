@@ -1,5 +1,8 @@
 const { User } = require("../models/user.model");
 const bcrypt = require("bcrypt");
+const { ApiError } = require("../middleware/apiError");
+const httpStatus = require("http-status");
+const config = require("../config.json");
 
 module.exports.createUser = async (email, password) => {
   try {

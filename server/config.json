@@ -1,4 +1,9 @@
 {
-  "port": 4000,
-  "mongoURI": "mongodb://localhost:27017"
+  "development": {
+    "port": 4000,
+    "mongoURI": "mongodb://localhost:27017"
+  },
+  "errors": {
+    "emailTaken": "Email is already taken"
+  }
 }

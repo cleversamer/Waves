@@ -8,7 +8,7 @@ module.exports.register = async (req, res, next) => {
 
     res.cookie("x-access-token", token).status(200).json({ user });
   } catch (err) {
-    res.status(400).json({ mssg: err.message });
+    next(err);
   }
 };
 

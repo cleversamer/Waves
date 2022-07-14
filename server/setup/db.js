@@ -2,7 +2,7 @@ const config = require("../config.json");
 const mongoose = require("mongoose");
 
 module.exports = () => {
-  const mongoURI = process.env["MONGODB_URI"] || config.mongoURI;
+  const mongoURI = process.env["MONGODB_URI"] || config.development.mongoURI;
   mongoose
     .connect(mongoURI)
     .then((value) => {
