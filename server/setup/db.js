@@ -2,8 +2,9 @@ const config = require("../config.json");
 const mongoose = require("mongoose");
 
 module.exports = () => {
+  const mongoURI = process.env["MONGODB_URI"] || config.mongoURI;
   mongoose
-    .connect(config.mongoURI)
+    .connect(mongoURI)
     .then((value) => {
       console.log("Connected to MongoDB!");
     })
