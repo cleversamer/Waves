@@ -7,6 +7,7 @@
     "emailTaken": "Email is already taken.",
     "emailNotUsed": "",
     "incorrectCredentials": "Incorrect email or password.",
-    "invalidToken": "You're unauthorized."
+    "invalidToken": "You're unauthorized.",
+    "hasNoRights": "You don't have enough rights."
   }
 }
