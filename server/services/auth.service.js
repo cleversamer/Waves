@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const { ApiError } = require("../middleware/apiError");
 const httpStatus = require("http-status");
 const config = require("../config.json");
-const userService = require("./user.service");
+const userService = require("./users.service");
 
 module.exports.createUser = async (email, password) => {
   try {

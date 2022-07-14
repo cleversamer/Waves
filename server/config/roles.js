@@ -1,17 +1,24 @@
 const AccessControl = require("accesscontrol");
 
+const allRights = {
+  "create:any": ["*"],
+  "read:any": ["*"],
+  "update:any": ["*"],
+  "delete:any": ["*"],
+};
+
 let grantsObject = {
   admin: {
-    dog: {
-      "create:any": ["*"],
-      "read:any": ["*"],
-      "update:any": ["*"],
-      "delete:any": ["*"],
-    },
+    profile: allRights,
+    email: allRights,
   },
   user: {
-    dog: {
-      "read:any": ["*"],
+    profile: {
+      "read:own": ["*", "!password", "!_id"],
+      "update:own": ["*"],
+    },
+    email: {
+      "update:own": ["*"],
     },
   },
 };

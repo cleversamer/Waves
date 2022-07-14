@@ -5,9 +5,10 @@
   },
   "errors": {
     "emailTaken": "Email is already taken.",
-    "emailNotUsed": "",
+    "emailNotUsed": "Email is not used.",
     "incorrectCredentials": "Incorrect email or password.",
     "invalidToken": "You're unauthorized.",
-    "hasNoRights": "You don't have enough rights."
+    "hasNoRights": "You don't have enough rights.",
+    "userNotFound": "User with the given ID was not found."
   }
 }
