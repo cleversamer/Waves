@@ -1,4 +1,4 @@
-const { authService } = require("../services");
+const { authService, emailService } = require("../services");
 const httpStatus = require("http-status");
 
 module.exports.register = async (req, res, next) => {
@@ -6,6 +6,8 @@ module.exports.register = async (req, res, next) => {
     const { email, password } = req.body;
     const user = await authService.createUser(email, password);
     const token = user.genAuthToken();
+
+    await emailService.registerEmail(email, user);
 
     res.cookie("x-access-token", token).status(httpStatus.CREATED).json(user);
   } catch (err) {

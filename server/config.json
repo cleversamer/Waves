@@ -9,6 +9,26 @@
     "incorrectCredentials": "Incorrect email or password.",
     "invalidToken": "You're unauthorized.",
     "hasNoRights": "You don't have enough rights.",
-    "userNotFound": "User with the given ID was not found."
+    "userNotFound": "User was not found.",
+    "userVerified": "User is alredy verified."
+  },
+  "email": {
+    "name": "***",
+    "intro": "Welcome to Waves! We\\'re very excited to have you on board.",
+    "action": {
+      "instructions": "To get validate your account, please click here:",
+      "button": {
+        "color": "#1a73e8",
+        "text": "Validate your account",
+        "link": "***"
+      }
+    },
+    "outro": "Need help, or have questions? Just reply to this email, we\\'d love to help."
+  },
+  "verification": {
+    "email": "thedev.samer@gmail.com",
+    "emailURL": "http://192.168.1.235:4000/",
+    "siteDomain": "http://192.168.1.235:4000/api/users/verify/",
+    "queryParam": "token"
   }
 }

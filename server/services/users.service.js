@@ -2,6 +2,7 @@ const { User } = require("../models/user.model");
 const { ApiError } = require("../middleware/apiError");
 const httpStatus = require("http-status");
 const config = require("../config.json");
+const jwt = require("jsonwebtoken");
 
 module.exports.findUserByEmail = async (email) => {
   try {
@@ -65,6 +66,14 @@ module.exports.updateUserEmail = async (req) => {
     }
 
     return user;
+  } catch (err) {
+    throw err;
+  }
+};
+
+module.exports.validateToken = async (token) => {
+  try {
+    return jwt.verify(token, process.env["JWT_PRIVATE_KEY"]);
   } catch (err) {
     throw err;
   }

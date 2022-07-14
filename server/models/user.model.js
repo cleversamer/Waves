@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.genAuthToken = function () {
-  const body = { sub: this._id.toHexString() };
+  const body = { sub: this._id.toHexString(), email: this.email };
   const token = jwt.sign(body, process.env["JWT_PRIVATE_KEY"], {
     expiresIn: "1d",
   });
@@ -63,6 +63,15 @@ userSchema.methods.genAuthToken = function () {
 userSchema.methods.comparePassword = async function (candidate) {
   const match = await bcrypt.compare(candidate, this.password);
   return match;
+};
+
+userSchema.methods.genRegisterToken = function () {
+  const body = { sub: this._id.toHexString() };
+  const token = jwt.sign(body, process.env["JWT_PRIVATE_KEY"], {
+    expiresIn: "1h",
+  });
+
+  return token;
 };
 
 const User = mongoose.model("User", userSchema);
