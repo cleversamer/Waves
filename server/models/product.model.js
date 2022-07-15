@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const productSchema = new mongoose.Schema({
   model: {
     type: String,
-    required: [true, "You need a guitar model"],
+    required: true,
     unique: true,
     maxlength: 250,
   },
@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: [true, "You need a description"],
+    required: true,
     maxlength: 10000,
   },
   price: {
@@ -32,7 +32,7 @@ const productSchema = new mongoose.Schema({
   },
   available: {
     type: Number,
-    required: [true, "How many of this model we own"],
+    required: true,
     maxlength: 5000,
     default: 0,
   },
@@ -43,7 +43,7 @@ const productSchema = new mongoose.Schema({
   },
   shipping: {
     type: Boolean,
-    required: [true, "Specify if this product has free shipping"],
+    required: true,
     default: false,
   },
   images: {
