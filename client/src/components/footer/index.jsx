@@ -20,7 +20,7 @@ const Footer = () => {
               </div>
 
               <div className="tag">
-                <Timelapse />
+                <Phone />
                 <div className="nfo">
                   <div>Phone</div>
                   <div>+972 59-736-7603</div>
@@ -28,7 +28,7 @@ const Footer = () => {
               </div>
 
               <div className="tag">
-                <Phone />
+                <Timelapse />
                 <div className="nfo">
                   <div>Working hours</div>
                   <div>always closed</div>
