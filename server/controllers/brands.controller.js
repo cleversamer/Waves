@@ -39,7 +39,7 @@ module.exports.updateBrand = async (req, res, next) => {
 
 module.exports.getAllBrands = async (req, res, next) => {
   try {
-    const brands = await brandsService.getAllBrands();
+    const brands = await brandsService.getAllBrands(req);
     res.status(200).json(brands);
   } catch (err) {
     next(err);

@@ -11,9 +11,12 @@
     "hasNoRights": "You don't have enough rights.",
     "userNotFound": "User was not found.",
     "brandNotFound": "Brand was not found.",
+    "productNotFound": "Product was not found.",
     "noBrands": "No brands found in the database.",
     "noProducts": "No products found in the database.",
-    "userVerified": "User is alredy verified."
+    "userVerified": "User is alredy verified.",
+    "noPaginationFilter": "You have to specify 'skip' and 'limit' to process your query.",
+    "invalidPaginationFilter": "You have to specify 'skip' and 'limit' as numbers."
   },
   "email": {
     "name": "***",

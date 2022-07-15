@@ -12,4 +12,10 @@ router
     productsController.addProduct
   );
 
+router
+  .route("/:id")
+  .get(productsController.getProduct)
+  .patch([auth("updateAny", "product")], productsController.updateProduct)
+  .delete([auth("deleteAny", "product"), productsController.deleteProduct]);
+
 module.exports = router;

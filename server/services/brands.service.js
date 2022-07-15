@@ -68,9 +68,26 @@ module.exports.updateBrand = async (req) => {
   }
 };
 
-module.exports.getAllBrands = async () => {
+module.exports.getAllBrands = async (req) => {
   try {
-    const brands = await Brand.find({});
+    let { skip, limit } = req.body;
+    if (typeof skip !== "number" || typeof limit !== "number") {
+      const statusCode = httpStatus.BAD_REQUEST;
+      const message = config.errors.invalidPaginationFilter;
+      throw new ApiError(statusCode, message);
+    }
+
+    skip = skip.toString();
+    limit = limit.toString();
+
+    if (!skip || !limit) {
+      const statusCode = httpStatus.BAD_REQUEST;
+      const message = config.errors.noPaginationFilter;
+      throw new ApiError(statusCode, message);
+    }
+
+    const brands = await Brand.find({}, {}, { skip, limit });
+
     if (!brands.length) {
       const statusCode = httpStatus.NOT_FOUND;
       const message = config.errors.noBrands;
