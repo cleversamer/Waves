@@ -13,6 +13,7 @@ let grantsObject = {
     email: allRights,
     brand: allRights,
     product: allRights,
+    site: allRights,
   },
   user: {
     profile: {
@@ -26,6 +27,9 @@ let grantsObject = {
       "read:any": ["*"],
     },
     product: {
+      "read:any": ["*"],
+    },
+    site: {
       "read:any": ["*"],
     },
   },
