@@ -11,6 +11,7 @@ let grantsObject = {
   admin: {
     profile: allRights,
     email: allRights,
+    brand: allRights,
   },
   user: {
     profile: {
@@ -19,6 +20,9 @@ let grantsObject = {
     },
     email: {
       "update:own": ["*"],
+    },
+    brand: {
+      "read:any": ["*"],
     },
   },
 };

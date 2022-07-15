@@ -1,4 +1,4 @@
-const { usersService } = require("../services");
+const { usersService, emailService } = require("../services");
 const httpStatus = require("http-status");
 const { ApiError } = require("../middleware/apiError");
 const config = require("../config.json");
@@ -25,7 +25,7 @@ module.exports.updateEmail = async (req, res, next) => {
     const user = await usersService.updateUserEmail(req);
     const token = user.genAuthToken();
 
-    // send email to verify account
+    await emailService.registerEmail(req.body.email, req.user);
 
     res.cookie("x-access-token", token).status(200).json(user);
   } catch (err) {
