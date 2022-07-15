@@ -4,6 +4,7 @@ import Home from "pages/home";
 import NotFound from "pages/notFound";
 
 import Header from "components/header";
+import Footer from "components/footer";
 
 import config from "config.json";
 
@@ -24,6 +25,8 @@ const App = () => {
           element={<Navigate to={config.routes.notFound} replace />}
         />
       </Routes>
+
+      <Footer />
     </Fragment>
   );
 };
