@@ -10,6 +10,8 @@
     "invalidToken": "You're unauthorized.",
     "hasNoRights": "You don't have enough rights.",
     "userNotFound": "User was not found.",
+    "brandNotFound": "Brand was not found.",
+    "noBrands": "No brands found in the database.",
     "userVerified": "User is alredy verified."
   },
   "email": {

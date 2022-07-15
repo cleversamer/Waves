@@ -9,3 +9,39 @@ module.exports.addBrand = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.getBrand = async (req, res, next) => {
+  try {
+    const brand = await brandsService.getBrand(req.params.id);
+    res.status(200).json(brand);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports.deleteBrand = async (req, res, next) => {
+  try {
+    const brand = await brandsService.deleteBrand(req.params.id);
+    res.status(200).json(brand);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports.updateBrand = async (req, res, next) => {
+  try {
+    const brand = await brandsService.updateBrand(req);
+    res.status(200).json(brand);
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports.getAllBrands = async (req, res, next) => {
+  try {
+    const brands = await brandsService.getAllBrands();
+    res.status(200).json(brands);
+  } catch (err) {
+    next(err);
+  }
+};
