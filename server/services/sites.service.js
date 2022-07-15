@@ -84,3 +84,18 @@ module.exports.findSiteById = async (req) => {
     throw err;
   }
 };
+
+module.exports.deleteSite = async (req) => {
+  try {
+    const site = await Site.findByIdAndDelete(req.params.id);
+    if (!site) {
+      const statusCode = httpStatus.NOT_FOUND;
+      const message = config.errors.siteNotFound;
+      throw new ApiError(statusCode, message);
+    }
+
+    return site;
+  } catch (err) {
+    throw err;
+  }
+};

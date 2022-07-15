@@ -9,6 +9,7 @@ const allRights = {
 
 let grantsObject = {
   admin: {
+    user: allRights,
     profile: allRights,
     email: allRights,
     brand: allRights,
@@ -16,6 +17,9 @@ let grantsObject = {
     site: allRights,
   },
   user: {
+    user: {
+      "read:own": ["*"],
+    },
     profile: {
       "read:own": ["*", "!password", "!_id"],
       "update:own": ["*"],

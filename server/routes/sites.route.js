@@ -11,6 +11,7 @@ router
 router
   .route("/:id")
   .get(sitesController.getSite)
-  .patch([auth("updateAny", "site")], sitesController.updateSite);
+  .patch([auth("updateAny", "site")], sitesController.updateSite)
+  .delete([auth("deleteAny", "site")], sitesController.deleteSite);
 
 module.exports = router;

@@ -36,3 +36,12 @@ module.exports.getSite = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.deleteSite = async (req, res, next) => {
+  try {
+    const site = await sitesService.deleteSite(req);
+    res.status(200).json(site);
+  } catch (err) {
+    next(err);
+  }
+};
