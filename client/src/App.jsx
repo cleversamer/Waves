@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/home";
-import NotFound from "./pages/notFound";
+import Home from "pages/home";
+import NotFound from "pages/notFound";
 
-import config from "./config.json";
+import config from "config.json";
 
 const App = () => {
   return (

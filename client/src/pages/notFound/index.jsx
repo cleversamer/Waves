@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import config from "../../config.json";
+import config from "config.json";
 import "./index.css";
 
 const NotFound = () => {
