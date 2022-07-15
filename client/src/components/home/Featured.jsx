@@ -16,13 +16,6 @@ const Featured = () => {
       lineTitle: "View offers",
       linkTo: "/shop",
     },
-    {
-      img: "/assets/images/featured/featured_home_3.jpg",
-      lineOne: "Fender",
-      lineTwo: "Custom shop",
-      lineTitle: "Show Now",
-      linkTo: "/shop",
-    },
   ];
 
   return (

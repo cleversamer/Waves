@@ -240,6 +240,7 @@ select {
   display: table;
   background: #e1ddc3;
   margin: 0 auto;
+  color: inherit !important;
 }
 
 .link_default:hover,
@@ -552,10 +553,15 @@ footer .business_nfo .nfo {
       FEATURED PROMOTION
 ==============================*/
 
+.slim_promotion {
+  overflow: hidden;
+  text-align: center;
+}
+
 .slim_promotion .slim_promotion_img {
   height: 400px;
   background-size: cover !important;
-  background-position: top center !important;
+  background-position: center !important;
   padding: 73px;
   box-sizing: border-box;
 }
@@ -587,6 +593,26 @@ footer .business_nfo .nfo {
 
 .slim_promotion .btn {
   margin-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .slim_promotion .tag.title {
+    font-size: 42px;
+  }
+
+  .slim_promotion .tag.low_title {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slim_promotion .tag.title {
+    font-size: 28px;
+  }
+
+  .slim_promotion .tag.low_title {
+    font-size: 24px;
+  }
 }
 
 /*============================
