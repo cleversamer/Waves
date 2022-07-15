@@ -20,9 +20,12 @@ a:hover {
 }
 
 .container {
-  width: 1100px;
+  width: 100vw;
+  max-width: 1100px;
+  height: fit-content;
   margin: 0 auto;
 }
+
 .page_container {
   min-height: 75vh;
 }
@@ -36,8 +39,8 @@ a:hover {
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+  font-size: inherit !important;
+  text-decoration: none !important;
 }
 
 .bck_b_light {
@@ -298,9 +301,19 @@ select {
 /*============================
           HEADER
 ==============================*/
-header {
-  width: 100%;
-  border-bottom: 1px solid white;
+.header {
+  width: 100vw;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 header .logo {
@@ -322,6 +335,7 @@ header .container {
 
 header .container .left {
   width: 250px;
+  max-width: 30vw;
 }
 
 header .container .right {
@@ -329,18 +343,28 @@ header .container .right {
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
 }
+
+header .container .right a {
+  color: #c9c9c9 !important;
+  text-decoration: none !important;
+}
+
+header .container .right a:hover,
+header .container .right a:active {
+  color: #fff !important;
+}
+
 header .container .right .top,
 header .container .right .bottom {
   text-transform: uppercase;
   font-weight: 700;
   text-align: right;
-  color: #ffffff;
   font-size: 15px;
   padding: 10px 20px;
 }
 
 header .container .right .top {
-  color: #c9c9c9;
+  color: #c9c9c9 !important;
   border-bottom: 1px solid #ffffff;
 }
 
@@ -359,10 +383,42 @@ header .cart_link span {
   padding: 0px 7px 2px 7px;
   font-size: 12px;
 }
-header .log_out_link {
-  cursor: pointer;
-  display: inline-block;
-  margin-left: 20px;
+
+@media screen and (max-width: 767px) {
+  .header-container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  header .logo {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  header .container .right .top,
+  header .container .right .bottom {
+    text-align: center;
+  }
+
+  header a,
+  header span {
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  header .container .right {
+    border: 0;
+    width: 100%;
+  }
+
+  header .container .right .top,
+  header .container .right .bottom {
+    font-size: 14px;
+  }
+  header .container .right .top {
+    border-top: 1px solid #eee;
+  }
 }
 
 /*============================

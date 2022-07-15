@@ -1,6 +1,10 @@
 {
   "routes": {
     "home": "/",
-    "notFound": "/notFound"
+    "notFound": "/notFound",
+    "shop": "/shop",
+    "login": "/login",
+    "dashboard": "/dashboard",
+    "cart": "/dashboard/user/cart"
   }
 }
