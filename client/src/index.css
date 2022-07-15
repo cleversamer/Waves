@@ -426,7 +426,7 @@ header .cart_link span {
 ==============================*/
 
 .footer-container {
-  padding: 0 40px;
+  padding: 40px;
   box-sizing: border-box;
 }
 
@@ -451,8 +451,8 @@ footer .right {
 }
 
 footer .business_nfo {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 footer .business_nfo .tag {
@@ -492,11 +492,6 @@ footer .business_nfo .nfo {
     text-align: center;
   }
 
-  footer .business_nfo {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   footer .business_nfo .nfo {
     font-size: 13px;
   }
@@ -517,10 +512,15 @@ footer .business_nfo .nfo {
       FEATURED IMAGE
 ==============================*/
 
+.featured_container {
+  overflow: hidden;
+}
+
 .featured_container .featured_image {
   position: relative;
   background-size: cover !important;
-  background-position: center left !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 
 .featured_container .featured_action {
