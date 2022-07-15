@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
     maxlength: 250,
   },
   brand: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Brand",
     required: true,
   },

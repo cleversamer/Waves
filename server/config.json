@@ -12,6 +12,7 @@
     "userNotFound": "User was not found.",
     "brandNotFound": "Brand was not found.",
     "noBrands": "No brands found in the database.",
+    "noProducts": "No products found in the database.",
     "userVerified": "User is alredy verified."
   },
   "email": {
