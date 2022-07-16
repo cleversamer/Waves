@@ -5,17 +5,15 @@ const config = require("../config.json");
 
 module.exports.getAllProducts = async (req) => {
   try {
-    let { skip, limit } = req.query;
-    skip = skip.toString();
-    limit = limit.toString();
+    let { skip, limit, sortBy, order } = req.query;
+    skip = skip || config.default.queryParams.skip.value;
+    limit = limit || config.default.queryParams.limit.value;
+    sortBy = sortBy || config.default.queryParams.sortBy.value;
+    order = order || config.default.queryParams.order.value;
 
-    if (!skip || !limit) {
-      const statusCode = httpStatus.BAD_REQUEST;
-      const message = config.errors.noPaginationFilter;
-      throw new ApiError(statusCode, message);
-    }
-
-    const products = await Product.find({}, {}, { skip, limit });
+    const products = await Product.find({}, {}, { skip, limit }).sort({
+      [sortBy]: order,
+    });
 
     if (!products.length) {
       const statusCode = httpStatus.NOT_FOUND;

@@ -3,6 +3,26 @@
     "port": 4000,
     "mongoURI": "mongodb://localhost:27017"
   },
+  "default": {
+    "queryParams": {
+      "skip": {
+        "type": "number",
+        "value": 0
+      },
+      "limit": {
+        "type": "number",
+        "value": 0
+      },
+      "sortBy": {
+        "type": "string",
+        "value": "_id"
+      },
+      "order": {
+        "type": "number",
+        "value": 1
+      }
+    }
+  },
   "errors": {
     "emailTaken": "Email is already taken.",
     "emailNotUsed": "Email is not used.",

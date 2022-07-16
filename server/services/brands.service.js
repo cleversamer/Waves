@@ -70,17 +70,15 @@ module.exports.updateBrand = async (req) => {
 
 module.exports.getAllBrands = async (req) => {
   try {
-    let { skip, limit } = req.query;
-    skip = skip.toString();
-    limit = limit.toString();
+    let { skip, limit, sortBy, order } = req.query;
+    skip = skip || config.default.queryParams.skip.value;
+    limit = limit || config.default.queryParams.limit.value;
+    sortBy = sortBy || config.default.queryParams.sortBy.value;
+    order = order || config.default.queryParams.order.value;
 
-    if (!skip || !limit) {
-      const statusCode = httpStatus.BAD_REQUEST;
-      const message = config.errors.noPaginationFilter;
-      throw new ApiError(statusCode, message);
-    }
-
-    const brands = await Brand.find({}, {}, { skip, limit });
+    const brands = await Brand.find({}, {}, { skip, limit }).sort({
+      [sortBy]: order,
+    });
 
     if (!brands.length) {
       const statusCode = httpStatus.NOT_FOUND;
