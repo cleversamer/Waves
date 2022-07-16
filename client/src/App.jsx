@@ -1,5 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Fragment, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { addProducts } from "store/products";
 
 import Home from "pages/home";
 import NotFound from "pages/notFound";
@@ -11,15 +15,18 @@ import * as fetch from "services/fetch";
 import config from "config.json";
 
 const App = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    fetch
-      .fetchAllProducts({ skip: 0, limit: 0 })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    fetch.fetchAllProducts(
+      { skip: 0, limit: 0 },
+      (res) => {
+        dispatch(addProducts(res.data));
+      },
+      (err) => {
+        console.log(err.message);
+      }
+    );
   }, []);
 
   return (
