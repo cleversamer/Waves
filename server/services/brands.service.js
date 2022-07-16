@@ -71,12 +71,6 @@ module.exports.updateBrand = async (req) => {
 module.exports.getAllBrands = async (req) => {
   try {
     let { skip, limit } = req.query;
-    if (typeof skip !== "number" || typeof limit !== "number") {
-      const statusCode = httpStatus.BAD_REQUEST;
-      const message = config.errors.invalidPaginationFilter;
-      throw new ApiError(statusCode, message);
-    }
-
     skip = skip.toString();
     limit = limit.toString();
 
