@@ -1,4 +1,10 @@
 {
+  "server": {
+    "development": "http://192.168.1.235:4000",
+    "routes": {
+      "getAllProducts": "/api/products"
+    }
+  },
   "routes": {
     "home": "/",
     "notFound": "/notFound",

@@ -5,7 +5,7 @@ const config = require("../config.json");
 
 module.exports.getAllProducts = async (req) => {
   try {
-    let { skip, limit } = req.body;
+    let { skip, limit } = req.params;
     if (typeof skip !== "number" || typeof limit !== "number") {
       const statusCode = httpStatus.BAD_REQUEST;
       const message = config.errors.invalidPaginationFilter;
