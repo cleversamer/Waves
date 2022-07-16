@@ -9,7 +9,11 @@ module.exports.register = async (req, res, next) => {
 
     await emailService.registerEmail(email, user);
 
-    res.cookie("x-access-token", token).status(httpStatus.CREATED).json(user);
+    res
+      .cookie("x-access-token", token)
+      .status(httpStatus.CREATED)
+      .header({ "Access-Control-Allow-Origin": "*" })
+      .json(user);
   } catch (err) {
     next(err);
   }
@@ -21,7 +25,11 @@ module.exports.signin = async (req, res, next) => {
     const user = await authService.signInWithEmailAndPassword(email, password);
     const token = user.genAuthToken();
 
-    res.cookie("x-access-token", token).status(200).json(user);
+    res
+      .cookie("x-access-token", token)
+      .status(200)
+      .header({ "Access-Control-Allow-Origin": "*" })
+      .json(user);
   } catch (err) {
     next(err);
   }
@@ -29,7 +37,10 @@ module.exports.signin = async (req, res, next) => {
 
 module.exports.isAuth = async (req, res, next) => {
   try {
-    res.json(req.user);
+    res
+      .status(200)
+      .header({ "Access-Control-Allow-Origin": "*" })
+      .json(req.user);
   } catch (err) {
     next(err);
   }

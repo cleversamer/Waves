@@ -5,7 +5,10 @@ const config = require("../config.json");
 
 module.exports.profile = async (req, res, next) => {
   try {
-    res.status(200).json(req.user);
+    res
+      .status(200)
+      .header({ "Access-Control-Allow-Origin": "*" })
+      .json(req.user);
   } catch (err) {
     next(err);
   }
@@ -14,7 +17,7 @@ module.exports.profile = async (req, res, next) => {
 module.exports.updateProfile = async (req, res, next) => {
   try {
     const user = await usersService.updateUserProfile(req);
-    res.status(200).json(user);
+    res.status(200).header({ "Access-Control-Allow-Origin": "*" }).json(user);
   } catch (err) {
     next(err);
   }
@@ -27,7 +30,11 @@ module.exports.updateEmail = async (req, res, next) => {
 
     await emailService.registerEmail(req.body.email, req.user);
 
-    res.cookie("x-access-token", token).status(200).json(user);
+    res
+      .cookie("x-access-token", token)
+      .status(200)
+      .header({ "Access-Control-Allow-Origin": "*" })
+      .json(user);
   } catch (err) {
     next(err);
   }
@@ -55,7 +62,10 @@ module.exports.verifyAccount = async (req, res, next) => {
     user.verified = true;
     await user.save();
 
-    res.status(httpStatus.CREATED).json(user);
+    res
+      .status(httpStatus.CREATED)
+      .header({ "Access-Control-Allow-Origin": "*" })
+      .json(user);
   } catch (err) {
     next(err);
   }
