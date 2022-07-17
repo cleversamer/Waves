@@ -2,7 +2,9 @@
   "server": {
     "url": "http://192.168.1.235:4000",
     "routes": {
-      "getAllProducts": "/api/products"
+      "getAllProducts": "/api/products",
+      "login": "/api/auth/signin",
+      "register": "/api/auth/register"
     }
   },
   "routes": {
@@ -10,6 +12,7 @@
     "notFound": "/notFound",
     "shop": "/shop",
     "login": "/login",
+    "register": "/register",
     "dashboard": "/dashboard",
     "cart": "/dashboard/user/cart",
     "productDetails": "/product"
@@ -37,6 +40,16 @@
     "default": "Something went wrong.",
     "fetch": {
       "products": "Could not fetch products."
+    },
+    "form": {
+      "email": {
+        "empty": "Email is required.",
+        "invalid": "Invalid email address."
+      },
+      "password": {
+        "empty": "Password is required.",
+        "invalid": "Invalid password."
+      }
     }
   }
 }

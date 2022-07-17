@@ -4,6 +4,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "pages/home";
 import NotFound from "pages/notFound";
+import Login from "pages/auth/login";
+import Register from "pages/auth/register";
 
 import Header from "components/header";
 import Footer from "components/footer";
@@ -19,6 +21,8 @@ const App = () => {
       <Header />
 
       <Routes>
+        <Route path={config.routes.register} element={<Register />} />
+        <Route path={config.routes.login} element={<Login />} />
         <Route path={config.routes.notFound} element={<NotFound />} />
         <Route path={config.routes.home} element={<Home />} />
         <Route

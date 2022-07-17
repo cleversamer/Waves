@@ -15,12 +15,33 @@ const slice = createSlice({
     auth: null,
     cart: [],
   },
-  reducers: {},
+  reducers: {
+    userAuthenticated: (user, action) => {
+      user.auth = true;
+      user.data = action.payload.data;
+    },
+  },
 });
 
-export const selectUser = createSelector(
+const { userAuthenticated } = slice.actions;
+
+export const authUser = (user) => {
+  return userAuthenticated({ data: user });
+};
+
+export const selectUserData = createSelector(
   (state) => state.user,
-  (user) => user
+  (user) => user.data
+);
+
+export const selectUserCart = createSelector(
+  (state) => state.user,
+  (user) => user.cart
+);
+
+export const selectUserAuth = createSelector(
+  (state) => state.user,
+  (user) => user.auth
 );
 
 export default slice.reducer;
