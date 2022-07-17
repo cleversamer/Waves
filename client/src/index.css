@@ -248,6 +248,11 @@ select {
   background: #fff193;
 }
 
+.button_wrapp .card_link {
+  color: #303030 !important;
+  text-decoration: none !important;
+}
+
 .card_link,
 .bag_link,
 .add_to_cart_link {
@@ -629,6 +634,7 @@ footer .business_nfo .nfo {
   font-size: 20px;
   margin-bottom: 30px;
   font-weight: bold;
+  width: 80vw;
 }
 
 .card_block_shop .card_item_wrapper {
@@ -647,12 +653,30 @@ footer .business_nfo .nfo {
   color: #5e5e5e;
 }
 
+.home-cards-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 960px) {
+  .home-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 /*============================
       CARD ITEM
 ==============================*/
 
 .card_item_wrapper {
-  width: 25%;
+  width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
   position: relative;
@@ -699,6 +723,13 @@ footer .business_nfo .nfo {
 .card_item_wrapper .actions {
   display: flex;
   padding: 15px 0 10px 0;
+}
+
+.card_item_wrapper .actions .button_wrapp > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .card_item_wrapper .actions .button_wrapp:nth-child(1) {
@@ -770,7 +801,7 @@ footer .business_nfo .nfo {
 }
 
 .collapse_items_wrapper .MuiList-root {
-  borderbottom: "1px solid #dbdbdb";
+  border-bottom: "1px solid #dbdbdb";
 }
 
 .collapse_items_wrapper .MuiListItem-root {

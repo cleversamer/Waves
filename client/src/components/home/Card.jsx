@@ -41,7 +41,7 @@ const Card = (props) => {
               type="default"
               altClass="card_link"
               title="View product"
-              linkTo={`/product_detail/${props.item._id}`}
+              linkTo={`${config.routes.productDetails}/${props.item._id}`}
               style={{
                 fontWeight: "bold",
               }}

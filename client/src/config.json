@@ -11,19 +11,20 @@
     "shop": "/shop",
     "login": "/login",
     "dashboard": "/dashboard",
-    "cart": "/dashboard/user/cart"
+    "cart": "/dashboard/user/cart",
+    "productDetails": "/product"
   },
   "query": {
     "products": {
       "bySold": {
         "skip": 0,
-        "limit": 0,
+        "limit": 4,
         "sortBy": "itemSold",
         "order": -1
       },
       "byDate": {
         "skip": 0,
-        "limit": 0,
+        "limit": 4,
         "sortBy": "date",
         "order": -1
       }

@@ -11,14 +11,7 @@ const CardBlock = ({ items, title, shop, grid }) => {
     <div className={shop ? "card_block_shop" : "card_block"}>
       <div className={shop ? "" : "container"}>
         {title ? <div className="title">{title}</div> : null}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-          }}
-        >
-          {renderCards()}
-        </div>
+        <div className="home-cards-container">{renderCards()}</div>
       </div>
     </div>
   );
