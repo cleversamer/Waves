@@ -2,9 +2,9 @@ import WavesButton from "components/common/WavesButton";
 import config from "config.json";
 
 const Card = (props) => {
-  const renderCardImage = (image) => {
-    if (image.length > 0) {
-      return image[0];
+  const renderCardImage = (images) => {
+    if (images.length > 0) {
+      return images[0];
     } else {
       return config.paths.notAvailableImage;
     }
