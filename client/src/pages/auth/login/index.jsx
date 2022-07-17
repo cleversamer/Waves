@@ -49,6 +49,7 @@ const Login = () => {
       (res) => {
         dispatch(authUser(res.data));
         navigate(config.routes.dashboard);
+        toast.showSuccess(config.messages.login);
       },
       (err) => {
         toast.showError(err.response.data.message);
