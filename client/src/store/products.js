@@ -4,25 +4,41 @@ import { createSelector } from "reselect";
 const slice = createSlice({
   name: "products",
   initialState: {
-    list: [],
+    bySold: [],
+    byDate: [],
   },
   reducers: {
-    productsFetched: (products, action) => {
-      products.list = action.payload.data;
+    productsAddedBySold: (products, action) => {
+      products.bySold = action.payload.data;
+    },
+
+    productsAddedByDate: (products, action) => {
+      products.byDate = action.payload.data;
     },
   },
 });
 
-const { productsFetched } = slice.actions;
+const { productsAddedBySold, productsAddedByDate } = slice.actions;
 
-export const addProducts = (products) => {
-  return productsFetched({ data: products });
+export const addProductsByDate = (products) => {
+  return productsAddedByDate({ data: products });
 };
 
-export const selectProducts = () => {
+export const addProductsBySold = (products) => {
+  return productsAddedBySold({ data: products });
+};
+
+export const selectProductsByDate = () => {
   return createSelector(
     (state) => state.products,
-    (products) => products.list
+    (products) => products.byDate
+  );
+};
+
+export const selectProductsBySold = () => {
+  return createSelector(
+    (state) => state.products,
+    (products) => products.bySold
   );
 };
 

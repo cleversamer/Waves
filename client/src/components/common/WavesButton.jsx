@@ -1,4 +1,5 @@
-const { Link } = require("react-router-dom");
+import { Link } from "react-router-dom";
+import { AddShoppingCart } from "@material-ui/icons";
 
 const WavesButton = (props) => {
   const renderTemplate = () => {
@@ -14,6 +15,19 @@ const WavesButton = (props) => {
           >
             {props.title}
           </Link>
+        );
+
+      case "bag_link":
+        return (
+          <div
+            className="bag_link"
+            onClick={() => {
+              props.runAction();
+            }}
+            style={{ ...props.style }}
+          >
+            <AddShoppingCart style={{ fontSize: props.iconSize }} />
+          </div>
         );
 
       default:

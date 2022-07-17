@@ -1,6 +1,6 @@
 {
   "server": {
-    "url": "https://samer-waves.herokuapp.com",
+    "url": "http://192.168.1.235:4000",
     "routes": {
       "getAllProducts": "/api/products"
     }
@@ -12,5 +12,24 @@
     "login": "/login",
     "dashboard": "/dashboard",
     "cart": "/dashboard/user/cart"
+  },
+  "query": {
+    "products": {
+      "bySold": {
+        "skip": 0,
+        "limit": 0,
+        "sortBy": "itemSold",
+        "order": -1
+      },
+      "byDate": {
+        "skip": 0,
+        "limit": 0,
+        "sortBy": "date",
+        "order": -1
+      }
+    }
+  },
+  "paths": {
+    "notAvailableImage": "/assets/images/image_not_available.png"
   }
 }
