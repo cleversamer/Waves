@@ -10,6 +10,9 @@ import Footer from "components/footer";
 
 import config from "config.json";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   return (
     <Fragment>
@@ -27,6 +30,8 @@ const App = () => {
           element={<Navigate to={config.routes.notFound} replace />}
         />
       </Routes>
+
+      <ToastContainer />
 
       <Footer />
     </Fragment>

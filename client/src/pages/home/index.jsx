@@ -14,7 +14,9 @@ import Featured from "components/home/Featured";
 import SlimPromotion from "components/promotions/SlimPromotion";
 import CardBlock from "components/home/CardBlock";
 
+import config from "config.json";
 import * as fetch from "services/fetch";
+import * as toast from "services/toast";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const Home = () => {
         dispatch(addProductsByDate(res.data));
       },
       (err) => {
-        console.log(err.message);
+        toast.showError(`${err.message}: ${config.errors.fetch.products}`);
       }
     );
 
@@ -36,7 +38,7 @@ const Home = () => {
         dispatch(addProductsBySold(res.data));
       },
       (err) => {
-        console.log(err.message);
+        toast.showError(`${err.message}: ${config.errors.fetch.products}`);
       }
     );
   }, []);

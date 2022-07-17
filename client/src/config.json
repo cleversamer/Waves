@@ -32,5 +32,11 @@
   },
   "paths": {
     "notAvailableImage": "/assets/images/image_not_available.png"
+  },
+  "errors": {
+    "default": "Something went wrong.",
+    "fetch": {
+      "products": "Could not fetch products."
+    }
   }
 }
