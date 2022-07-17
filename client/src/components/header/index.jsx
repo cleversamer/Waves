@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUserAuth, logoutUser } from "store/user";
 import config from "config.json";
 
 const Header = () => {
-  const handleLogout = (e) => {
-    alert("log out");
+  const dispatch = useDispatch();
+  const userAuth = useSelector(selectUserAuth);
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
   };
 
   return (
@@ -15,20 +20,22 @@ const Header = () => {
 
         <div className="right">
           <div className="top">
-            <>
-              <div className="cart_link">
-                <span>1</span>
-                <Link to={config.routes.cart}>My cart</Link>
-              </div>
+            {userAuth ? (
+              <>
+                <div className="cart_link">
+                  <span>1</span>
+                  <Link to={config.routes.cart}>My cart</Link>
+                </div>
 
-              <Link to={config.routes.dashboard}>My account</Link>
+                <Link to={config.routes.dashboard}>My account</Link>
 
-              <Link to={config.routes.home} className="log_out_link">
-                <span onClick={handleLogout}>Log out</span>
-              </Link>
-
+                <Link to={config.routes.home} className="log_out_link">
+                  <span onClick={handleLogout}>Log out</span>
+                </Link>
+              </>
+            ) : (
               <Link to={config.routes.login}>Log in</Link>
-            </>
+            )}
           </div>
 
           <div className="bottom">

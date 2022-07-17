@@ -4,15 +4,8 @@ import { createSelector } from "reselect";
 const slice = createSlice({
   name: "user",
   initialState: {
-    data: {
-      _id: null,
-      email: null,
-      firstname: null,
-      lastname: null,
-      history: [],
-      verified: null,
-    },
-    auth: null,
+    data: null,
+    auth: false,
     cart: [],
   },
   reducers: {
@@ -20,13 +13,22 @@ const slice = createSlice({
       user.auth = true;
       user.data = action.payload.data;
     },
+
+    userLoggedOut: (user, action) => {
+      user.data = null;
+      user.auth = false;
+    },
   },
 });
 
-const { userAuthenticated } = slice.actions;
+const { userAuthenticated, userLoggedOut } = slice.actions;
 
 export const authUser = (user) => {
   return userAuthenticated({ data: user });
+};
+
+export const logoutUser = () => {
+  return userLoggedOut();
 };
 
 export const selectUserData = createSelector(

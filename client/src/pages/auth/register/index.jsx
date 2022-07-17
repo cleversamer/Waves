@@ -48,6 +48,7 @@ const Register = () => {
       credentials,
       (res) => {
         dispatch(authUser(res.data));
+        navigate(config.routes.dashboard);
       },
       (err) => {
         toast.showError(err.response.data.message);
