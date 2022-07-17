@@ -17,6 +17,9 @@
     "cart": "/dashboard/user/cart",
     "productDetails": "/product"
   },
+  "localStorage": {
+    "tokenKey": "theWavesAccessToken2022"
+  },
   "query": {
     "products": {
       "bySold": {

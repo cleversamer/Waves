@@ -11,7 +11,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import config from "config.json";
-import * as fetch from "services/fetch";
+import * as auth from "services/auth";
 import * as toast from "services/toast";
 
 const Register = () => {
@@ -44,7 +44,7 @@ const Register = () => {
   });
 
   const handleSubmit = (credentials) => {
-    fetch.register(
+    auth.register(
       credentials,
       (res) => {
         dispatch(authUser(res.data));

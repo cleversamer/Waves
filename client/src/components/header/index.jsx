@@ -34,7 +34,10 @@ const Header = () => {
                 </Link>
               </>
             ) : (
-              <Link to={config.routes.login}>Log in</Link>
+              <>
+                <Link to={config.routes.register}>Register</Link>
+                <Link to={config.routes.login}>Log in</Link>
+              </>
             )}
           </div>
 

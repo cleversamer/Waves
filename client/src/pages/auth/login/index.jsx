@@ -11,7 +11,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import config from "config.json";
-import * as fetch from "services/fetch";
+import * as auth from "services/auth";
 import * as toast from "services/toast";
 
 const Login = () => {
@@ -23,9 +23,11 @@ const Login = () => {
     initialValues: { email: "", password: "" },
     validationSchema: Yup.object({
       email: Yup.string()
-        .email("This is an invalid email")
-        .required("Sorry the email is required"),
-      password: Yup.string().required("Sorry the password is required"),
+        .email(config.errors.form.email.invalid)
+        .required(config.errors.form.email.empty),
+      password: Yup.string(config.errors.form.password.invalid).required(
+        config.errors.form.password.empty
+      ),
     }),
     onSubmit: (credentials) => {
       setLoading(true);
@@ -42,7 +44,7 @@ const Login = () => {
   });
 
   const handleSubmit = (credentials) => {
-    fetch.login(
+    auth.login(
       credentials,
       (res) => {
         dispatch(authUser(res.data));
