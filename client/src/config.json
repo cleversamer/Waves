@@ -4,7 +4,8 @@
     "routes": {
       "getAllProducts": "/api/products",
       "login": "/api/auth/signin",
-      "register": "/api/auth/register"
+      "register": "/api/auth/register",
+      "isAuth": "/api/auth/isauth"
     }
   },
   "routes": {
@@ -18,7 +19,7 @@
     "productDetails": "/product"
   },
   "localStorage": {
-    "tokenKey": "theWavesAccessToken2022"
+    "tokenKey": "x-access-token"
   },
   "query": {
     "products": {
@@ -53,6 +54,9 @@
         "empty": "Password is required.",
         "invalid": "Invalid password."
       }
+    },
+    "auth": {
+      "tokenExpired": "Session expired, please login!"
     }
   },
   "messages": {

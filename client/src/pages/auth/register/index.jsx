@@ -47,7 +47,8 @@ const Register = () => {
     auth.register(
       credentials,
       (res) => {
-        dispatch(authUser(res.data));
+        dispatch(authUser(res.data.user));
+        auth.setCookie(res.data.token);
         navigate(config.routes.dashboard);
         toast.showSuccess(config.messages.login);
       },

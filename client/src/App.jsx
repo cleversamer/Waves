@@ -1,6 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { authUser } from "store/user";
 
 import Home from "pages/home";
 import NotFound from "pages/notFound";
@@ -11,11 +14,29 @@ import Header from "components/header";
 import Footer from "components/footer";
 
 import config from "config.json";
+import * as auth from "services/auth";
+import * as toast from "services/toast";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const cookie = auth.isAuth(
+      (res) => {
+        dispatch(authUser(res.data));
+        toast.showSuccess(config.messages.login);
+      },
+      (err) => {
+        if (cookie) {
+          toast.showError(config.errors.auth.tokenExpired);
+        }
+      }
+    );
+  }, []);
+
   return (
     <Fragment>
       <Header />
