@@ -82,5 +82,5 @@ export const getCookie = () => {
 };
 
 export const getAuthHeader = () => {
-  return { Authorization: `Bearer ${getCookie()}111` };
+  return { Authorization: `Bearer ${getCookie()}` };
 };
