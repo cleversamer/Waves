@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   color: #404040;
+  overflow-x: hidden;
 }
 
 a:hover {
@@ -340,8 +341,8 @@ header .container {
 }
 
 header .container .left {
+  min-width: fit-content;
   width: 250px;
-  max-width: 30vw;
 }
 
 header .container .right {
@@ -372,6 +373,10 @@ header .container .right .bottom {
 header .container .right .top {
   color: #c9c9c9 !important;
   border-bottom: 1px solid #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 header .cart_link {
@@ -388,6 +393,7 @@ header .cart_link span {
   border-radius: 50%;
   padding: 0px 7px 2px 7px;
   font-size: 12px;
+  box-sizing: content-box;
 }
 
 @media screen and (max-width: 767px) {
@@ -421,6 +427,7 @@ header .cart_link span {
   header .container .right .top,
   header .container .right .bottom {
     font-size: 14px;
+    justify-content: center;
   }
   header .container .right .top {
     border-top: 1px solid #eee;
@@ -1061,14 +1068,17 @@ footer .business_nfo .nfo {
 ===============================*/
 
 .user_container {
-  width: 100%;
   display: flex;
   margin-bottom: 50px;
   min-height: 700px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 4vw;
 }
 
 .user_container .dashboard_title {
   margin-top: 20px;
+  margin-bottom: 35px;
 }
 
 .user_container .user_left_nav {
@@ -1078,6 +1088,7 @@ footer .business_nfo .nfo {
 
 .user_container .user_left_nav .links {
   margin: 13px 0px 40px 0px;
+  border-collapse: collapse;
 }
 
 .user_container .user_left_nav .links a {
@@ -1086,7 +1097,7 @@ footer .business_nfo .nfo {
   font-size: 16px !important;
   font-weight: 500;
   padding: 10px 0px;
-  width: 280px;
+  width: 250px;
   color: #303030 !important;
   text-decoration: none !important;
 }
@@ -1151,6 +1162,45 @@ footer .business_nfo .nfo {
   padding: 5px 10px;
   color: #ffffff;
   margin-top: 50px;
+}
+
+.article_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .user_container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
+  }
+
+  .user_container .user_left_nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .user_container .user_left_nav .links a {
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+  }
+
+  .user_container .user_right {
+    padding: 0;
+    text-align: center;
+  }
+
+  .user_container .user_nfo_panel {
+    text-align: left;
+  }
 }
 
 /*=============================

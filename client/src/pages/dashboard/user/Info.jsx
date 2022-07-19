@@ -63,7 +63,7 @@ const UserInfo = () => {
     <DashboardLayout title="User information">
       <form
         className="mt-3 article_form"
-        style={{ maxWidth: "250px" }}
+        style={{ maxWidth: "300px" }}
         onSubmit={formik.handleSubmit}
       >
         <div className="form-group">

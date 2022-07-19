@@ -28,10 +28,10 @@ const Header = () => {
               <>
                 <div className="cart_link">
                   <span>1</span>
-                  <Link to={config.routes.cart}>My cart</Link>
+                  <Link to={config.routes.cart}>cart</Link>
                 </div>
 
-                <Link to={config.routes.dashboard}>My account</Link>
+                <Link to={config.routes.dashboard}>Dashboard</Link>
 
                 <Link to={config.routes.home} className="log_out_link">
                   <span onClick={handleLogout}>Log out</span>
