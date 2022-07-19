@@ -379,6 +379,10 @@ header .container .right .top {
   align-items: center;
 }
 
+header .container .right .top .log_out_link {
+  margin-left: 0;
+}
+
 header .cart_link {
   display: inline-block;
   position: relative;
@@ -1118,6 +1122,12 @@ footer .business_nfo .nfo {
   margin-top: 20px;
 }
 
+.user_nfo_panel .user-data {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .user_container .user_nfo_panel h1 {
   margin: 0 0 20px 0;
   line-height: 32px;
@@ -1127,8 +1137,8 @@ footer .business_nfo .nfo {
 
 .user_container .user_nfo_panel span {
   display: block;
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .user_product_block {
@@ -1188,6 +1198,11 @@ footer .business_nfo .nfo {
     text-align: center;
   }
 
+  .user_container .user_left_nav h2,
+  .user_container .user_right .dashboard_title {
+    margin-bottom: 0;
+  }
+
   .user_container .user_left_nav .links a {
     border: 1px solid #dddddd;
     border-collapse: collapse;
@@ -1196,10 +1211,13 @@ footer .business_nfo .nfo {
   .user_container .user_right {
     padding: 0;
     text-align: center;
+    width: 90vw;
   }
 
   .user_container .user_nfo_panel {
     text-align: left;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 

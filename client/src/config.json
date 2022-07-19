@@ -10,7 +10,7 @@
     }
   },
   "routes": {
-    "home": "/",
+    "home": "/home",
     "notFound": "/notFound",
     "shop": "/shop",
     "login": "/login",

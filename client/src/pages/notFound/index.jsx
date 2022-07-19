@@ -4,12 +4,14 @@ import "./index.css";
 
 const NotFound = () => {
   return (
-    <div className="container">
+    <div className="notfound-container">
       <h1 className="heading">
         The requested URL was not found on this server.
       </h1>
 
-      <Link to={config.routes.home}>Back to the home page</Link>
+      <Link to={config.routes.home} className="link">
+        Back to the home page
+      </Link>
     </div>
   );
 };

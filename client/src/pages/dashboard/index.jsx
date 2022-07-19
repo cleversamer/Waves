@@ -5,12 +5,18 @@ import { selectUserData } from "store/user";
 const Dashboard = () => {
   const user = useSelector(selectUserData);
 
+  const displayName = () => {
+    const { firstname, lastname } = user;
+    return !firstname && !lastname
+      ? "No name added"
+      : `${firstname} ${lastname}`;
+  };
+
   return (
     <DashboardLayout title="Overview">
       <div className="user_nfo_panel">
-        <div>
-          <span>{user.firstname || "No firstname added"}</span>
-          <span>{user.lastname || "No lastname added"}</span>
+        <div className="user-data">
+          <span>{displayName()}</span>
           <span>{user.email}</span>
         </div>
 

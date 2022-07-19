@@ -1,17 +1,7 @@
-.container a {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  font-size: 2vw;
-  font-weight: 500;
-  color: #00b !important;
-  text-decoration: underline !important;
-}
-
-.container {
+.notfound-container {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 500px;
   font-size: 14px;
   color: #303030;
 }
@@ -23,10 +13,13 @@
 }
 
 .link {
-  font-size: 2vw;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 2vw !important;
   font-weight: 500;
-  color: #00b;
-  text-decoration: underline;
+  color: #1e90ff;
+  text-decoration: underline !important;
 }
 
 .link:hover,
@@ -36,10 +29,10 @@
 
 @media screen and (max-width: 768px) {
   .heading {
-    font-size: 6vw;
+    font-size: 6vw !important;
   }
 
   .link {
-    font-size: 4.5vw;
+    font-size: 4.5vw !important;
   }
 }
