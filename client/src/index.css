@@ -1061,6 +1061,7 @@ footer .business_nfo .nfo {
 ===============================*/
 
 .user_container {
+  width: 100%;
   display: flex;
   margin-bottom: 50px;
   min-height: 700px;
@@ -1082,14 +1083,21 @@ footer .business_nfo .nfo {
 .user_container .user_left_nav .links a {
   display: block;
   border-bottom: 1px solid #dddddd;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 16px !important;
+  font-weight: 500;
   padding: 10px 0px;
   width: 280px;
+  color: #303030 !important;
+  text-decoration: none !important;
+}
+
+.user_container .user_left_nav .links a:hover,
+.user_container .user_left_nav .links a:active {
+  color: #1e90ff !important;
 }
 
 .user_container .user_right {
-  flex-grow: 1;
+  flex: 1;
   padding: 0 0 0 29px;
 }
 

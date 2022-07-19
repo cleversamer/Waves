@@ -5,7 +5,8 @@
       "getAllProducts": "/api/products",
       "login": "/api/auth/signin",
       "register": "/api/auth/register",
-      "isAuth": "/api/auth/isauth"
+      "isAuth": "/api/auth/isauth",
+      "updateProfile": "/api/users/profile"
     }
   },
   "routes": {
@@ -16,7 +17,12 @@
     "register": "/register",
     "dashboard": "/dashboard",
     "cart": "/dashboard/user/cart",
-    "productDetails": "/product"
+    "userInfo": "/dashboard/user/info",
+    "productDetails": "/product",
+    "admin": {
+      "products": "/dashboard/admin/products",
+      "manageSite": "/dashboard/admin/manage"
+    }
   },
   "localStorage": {
     "tokenKey": "x-access-token"
@@ -61,6 +67,7 @@
   },
   "messages": {
     "login": "Welcome to the Waves!",
-    "logout": "Logged out successfully!"
+    "logout": "Logged out successfully!",
+    "profileUpdated": "Profile updated successfully!"
   }
 }

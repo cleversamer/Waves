@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserAuth, logoutUser } from "store/user";
+import * as auth from "services/auth";
 import * as toast from "services/toast";
 import config from "config.json";
 
@@ -10,6 +11,7 @@ const Header = () => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
+    auth.removeCookie();
     toast.showSuccess(config.messages.logout);
   };
 

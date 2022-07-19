@@ -2,13 +2,15 @@
 import { Fragment, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-import { authUser } from "store/user";
+import { useDispatch, useSelector } from "react-redux";
+import { authUser, selectUserAuth } from "store/user";
 
 import Home from "pages/home";
 import NotFound from "pages/notFound";
 import Login from "pages/auth/login";
 import Register from "pages/auth/register";
+import Dashboard from "pages/dashboard";
+import UserInfo from "pages/dashboard/user/Info";
 
 import Header from "components/header";
 import Footer from "components/footer";
@@ -21,6 +23,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+  const userAuth = useSelector(selectUserAuth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,6 +45,13 @@ const App = () => {
       <Header />
 
       <Routes>
+        {userAuth && (
+          <>
+            <Route path={config.routes.userInfo} element={<UserInfo />} />
+            <Route path={config.routes.dashboard} element={<Dashboard />} />
+          </>
+        )}
+
         <Route path={config.routes.register} element={<Register />} />
         <Route path={config.routes.login} element={<Login />} />
         <Route path={config.routes.notFound} element={<NotFound />} />

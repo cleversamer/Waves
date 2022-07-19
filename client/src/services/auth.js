@@ -2,6 +2,12 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import config from "config.json";
 
+export const defaultHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "*",
+  "Access-Control-Allow-Credentials": "true",
+};
+
 /////////////////////////////// Login / Register ///////////////////////////////
 
 const auth = (
@@ -17,9 +23,7 @@ const auth = (
     method: "POST",
     url,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
-      "Access-Control-Allow-Credentials": "true",
+      ...defaultHeaders,
       ...headers,
     },
     data: {
@@ -53,9 +57,7 @@ export const isAuth = (onSuccess, onError, onFinish = () => {}) => {
     method: "GET",
     url,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
-      "Access-Control-Allow-Credentials": "true",
+      ...defaultHeaders,
       ...getAuthHeader(),
     },
   })
