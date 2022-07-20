@@ -24,10 +24,19 @@ const slice = createSlice({
       user.data.firstname = firstname;
       user.data.lastname = lastname;
     },
+
+    userEmailUpdated: (user, action) => {
+      user.data.email = action.payload.data.newEmail;
+    },
   },
 });
 
-const { userAuthenticated, userLoggedOut, userProfileUpdated } = slice.actions;
+const {
+  userAuthenticated,
+  userLoggedOut,
+  userProfileUpdated,
+  userEmailUpdated,
+} = slice.actions;
 
 export const authUser = (user) => {
   return userAuthenticated({ data: user });
@@ -39,6 +48,10 @@ export const logoutUser = () => {
 
 export const updateUserProfile = (data) => {
   return userProfileUpdated({ data });
+};
+
+export const updateUserEmail = (data) => {
+  return userEmailUpdated({ data });
 };
 
 export const selectUserData = createSelector(

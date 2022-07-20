@@ -6,7 +6,8 @@
       "login": "/api/auth/signin",
       "register": "/api/auth/register",
       "isAuth": "/api/auth/isauth",
-      "updateProfile": "/api/users/profile"
+      "updateProfile": "/api/users/profile",
+      "updateEmail": "/api/users/email"
     }
   },
   "routes": {
@@ -68,6 +69,7 @@
   "messages": {
     "login": "Welcome to the Waves!",
     "logout": "Logged out successfully!",
-    "profileUpdated": "Profile updated successfully!"
+    "profileUpdated": "Profile updated successfully!",
+    "emailUpdated": "Email updated successfully!"
   }
 }

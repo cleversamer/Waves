@@ -13,7 +13,8 @@ a:hover {
 
 .root_loader {
   text-align: center;
-  margin: 80px;
+  margin: 60px;
+  width: fit-content;
 }
 
 .root_loader.full {
@@ -113,6 +114,12 @@ tr:nth-child(even) {
 
 .MuiFormControl-root {
   width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .root_loader {
+    margin: 60px auto;
+  }
 }
 
 /*============================
@@ -1120,6 +1127,10 @@ footer .business_nfo .nfo {
   padding: 0 0 0 29px;
 }
 
+.user_container .user_right hr {
+  margin: 30px 0;
+}
+
 .user_container .user_nfo_panel {
   background: #f8f8f8;
   padding: 20px;
@@ -1188,10 +1199,13 @@ footer .business_nfo .nfo {
   .user_container {
     width: 100%;
     padding: 0;
-    margin: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center !important;
+  }
+
+  .article_form {
+    margin: 0 auto;
   }
 
   .user_container .user_left_nav {
@@ -1202,8 +1216,7 @@ footer .business_nfo .nfo {
     text-align: center;
   }
 
-  .user_container .user_left_nav h2,
-  .user_container .user_right .dashboard_title {
+  .user_container .user_left_nav h2 {
     margin-bottom: 0;
   }
 

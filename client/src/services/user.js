@@ -17,3 +17,21 @@ export const updateUserProfile = (values, onSuccess, onError, onFinish) => {
     .catch(onError)
     .finally(onFinish);
 };
+
+export const updateUserEmail = (values, onSuccess, onError, onFinish) => {
+  const url = `${config.server.url}${config.server.routes.updateEmail}`;
+  return axios({
+    method: "PATCH",
+    url,
+    headers: {
+      ...auth.defaultHeaders,
+      ...auth.getAuthHeader(),
+    },
+    data: {
+      email: values.newEmail,
+    },
+  })
+    .then(onSuccess)
+    .catch(onError)
+    .finally(onFinish);
+};
