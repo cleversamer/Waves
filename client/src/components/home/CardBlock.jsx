@@ -1,4 +1,5 @@
 import Card from "./Card";
+import Loader from "components/common/Loader";
 
 const CardBlock = ({ items, title, shop, grid }) => {
   const renderCards = () => {
@@ -11,7 +12,11 @@ const CardBlock = ({ items, title, shop, grid }) => {
     <div className={shop ? "card_block_shop" : "card_block"}>
       <div className={shop ? "" : "container"}>
         {title ? <div className="title">{title}</div> : null}
-        <div className="home-cards-container">{renderCards()}</div>
+        {items?.length ? (
+          <div className="home-cards-container">{renderCards()}</div>
+        ) : (
+          <Loader />
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,9 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import DashboardLayout from "hoc/DashboardLayout";
 import { TextField, Button } from "@mui/material";
+import Loader from "components/common/Loader";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserData, updateUserProfile } from "store/user";
@@ -11,8 +15,10 @@ import * as toast from "services/toast";
 import config from "config.json";
 
 const UserInfo = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector(selectUserData);
+  const [isLoading, setLoading] = useState(false);
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -31,10 +37,13 @@ const UserInfo = () => {
         .required("Sorry, you need the lastname"),
     }),
     onSubmit: (values) => {
+      setLoading(true);
+
       userService.updateUserProfile(
         values,
         (res) => {
           dispatch(updateUserProfile(values));
+          navigate(config.routes.dashboard);
           toast.showSuccess(config.messages.profileUpdated);
         },
         (err) => {
@@ -45,7 +54,7 @@ const UserInfo = () => {
           toast.showError(message);
         },
         () => {
-          //
+          setLoading(false);
         }
       );
     },
@@ -97,6 +106,8 @@ const UserInfo = () => {
           Edit profile
         </Button>
       </form>
+
+      {isLoading && <Loader />}
     </DashboardLayout>
   );
 };
