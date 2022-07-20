@@ -649,7 +649,7 @@ footer .business_nfo .nfo {
   font-size: 20px;
   margin-bottom: 30px;
   font-weight: bold;
-  width: 100vw;
+  width: 100%;
 }
 
 .card_block_shop .card_item_wrapper {
