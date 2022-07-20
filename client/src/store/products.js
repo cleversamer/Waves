@@ -4,10 +4,15 @@ import { createSelector } from "reselect";
 const slice = createSlice({
   name: "products",
   initialState: {
+    paginated: [],
     bySold: [],
     byDate: [],
   },
   reducers: {
+    productsPaginated: (products, action) => {
+      products.paginated = action.payload.data;
+    },
+
     productsAddedBySold: (products, action) => {
       products.bySold = action.payload.data;
     },
@@ -18,7 +23,12 @@ const slice = createSlice({
   },
 });
 
-const { productsAddedBySold, productsAddedByDate } = slice.actions;
+const { productsPaginated, productsAddedBySold, productsAddedByDate } =
+  slice.actions;
+
+export const addPaginatedProducts = (products) => {
+  return productsPaginated({ data: products });
+};
 
 export const addProductsByDate = (products) => {
   return productsAddedByDate({ data: products });

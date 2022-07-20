@@ -1,23 +1,29 @@
 import axios from "axios";
+import query from "utils/query";
 import config from "config.json";
 
 // General purposes
-const fetchAllProducts = (filter, onSuccess, onError) => {
+const fetchAllProducts = (filter, queryParams, onSuccess, onError) => {
   const baseUrl = `${config.server.url}${config.server.routes.getAllProducts}`;
-  const skip = config.query.products[filter].skip;
-  const limit = config.query.products[filter].limit;
-  const sortBy = config.query.products[filter].sortBy;
-  const order = config.query.products[filter].order;
-
-  const url = `${baseUrl}?skip=${skip}&limit=${limit}&sortBy=${sortBy}&order=${order}`;
+  const queryString = query(queryParams || config.query.products[filter]);
+  const url = `${baseUrl}?${queryString}`;
   return axios.get(url).then(onSuccess).catch(onError);
 };
 
 // Specific purposes
 export const fetchProductsBySold = (onSuccess, onError) => {
-  return fetchAllProducts("bySold", onSuccess, onError);
+  return fetchAllProducts("bySold", null, onSuccess, onError);
 };
 
 export const fetchProductsByDate = (onSuccess, onError) => {
-  return fetchAllProducts("byDate", onSuccess, onError);
+  return fetchAllProducts("byDate", null, onSuccess, onError);
+};
+
+export const fetchPaginatedProducts = (pagination, onSuccess, onError) => {
+  return fetchAllProducts(null, pagination, onSuccess, onError);
+};
+
+export const fetchAllBrands = (onSuccess, onError) => {
+  const url = `${config.server.url}${config.server.routes.getAllBrands}`;
+  return axios.get(url).then(onSuccess).catch(onError);
 };

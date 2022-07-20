@@ -3,6 +3,7 @@
     "url": "http://192.168.1.235:4000",
     "routes": {
       "getAllProducts": "/api/products",
+      "getAllBrands": "/api/brands",
       "login": "/api/auth/signin",
       "register": "/api/auth/register",
       "isAuth": "/api/auth/isauth",
@@ -50,7 +51,8 @@
   "errors": {
     "default": "Something went wrong.",
     "fetch": {
-      "products": "Could not fetch products."
+      "products": "Could not fetch products.",
+      "brands": "Could not fetch brands."
     },
     "form": {
       "email": {
