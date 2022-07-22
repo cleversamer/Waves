@@ -47,14 +47,6 @@ const Shop = () => {
 
   return (
     <div className="page_container">
-      <div className="page_top">
-        <div className="container">
-          <SearchBar
-          // handleKeywords={(values) => handleKeywords(values)}
-          />
-        </div>
-      </div>
-
       <div className="container">
         <div className="shop_wrapper">
           <div className="left">

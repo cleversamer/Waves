@@ -3,9 +3,9 @@ import query from "utils/query";
 import config from "config.json";
 
 // General purposes
-const fetchAllProducts = (filter, queryParams, onSuccess, onError) => {
+const fetchAllProducts = (typeKey, queryParams, onSuccess, onError) => {
   const baseUrl = `${config.server.url}${config.server.routes.getAllProducts}`;
-  const queryString = query(queryParams || config.query.products[filter]);
+  const queryString = query(queryParams || config.query.products[typeKey]);
   const url = `${baseUrl}?${queryString}`;
   return axios.get(url).then(onSuccess).catch(onError);
 };

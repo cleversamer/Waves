@@ -831,6 +831,7 @@ footer .business_nfo .nfo {
 ==============================*/
 
 .shop_wrapper {
+  margin-top: 4vh;
   display: flex;
 }
 

@@ -47,7 +47,7 @@ const RangeSelect = (props) => {
             <form className="mt-3" onSubmit={formik.handleSubmit}>
               <div>
                 <TextField
-                  placeholder="$ Min"
+                  label="$ Min"
                   name="min"
                   variant="outlined"
                   type="number"
@@ -58,7 +58,7 @@ const RangeSelect = (props) => {
               <br />
               <div>
                 <TextField
-                  placeholder="$ Max"
+                  label="$ Max"
                   name="max"
                   variant="outlined"
                   type="number"
@@ -66,12 +66,14 @@ const RangeSelect = (props) => {
                   {...errorHelper(formik, "max")}
                 />
               </div>
+              <br />
               <Button
                 type="submit"
                 className="mt-3"
                 variant="outlined"
                 color="secondary"
-                size="small"
+                size="large"
+                style={{ width: "100%" }}
               >
                 Search
               </Button>
