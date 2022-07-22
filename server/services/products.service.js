@@ -5,13 +5,44 @@ const config = require("../config.json");
 
 module.exports.getAllProducts = async (req) => {
   try {
-    let { skip, limit, sortBy, order } = req.query;
+    let {
+      skip,
+      limit,
+      sortBy,
+      order,
+      selectedBrands,
+      selectedFrets,
+      minPrice,
+      maxPrice,
+      fetchAll,
+    } = req.query;
     skip = skip || config.default.queryParams.skip.value;
     limit = limit || config.default.queryParams.limit.value;
     sortBy = sortBy || config.default.queryParams.sortBy.value;
     order = order || config.default.queryParams.order.value;
 
-    const products = await Product.find({}, {}, { skip, limit }).sort({
+    selectedBrands = selectedBrands ? selectedBrands.split(",") : [];
+    selectedFrets = selectedFrets
+      ? selectedFrets.split(",").map((item) => {
+          try {
+            return parseInt(item);
+          } catch (err) {
+            return 22;
+          }
+        })
+      : [];
+
+    const criteria = fetchAll
+      ? {}
+      : {
+          $or: [
+            { brand: { $in: selectedBrands } },
+            { frets: { $in: selectedFrets } },
+            { price: { $gte: minPrice, $lte: maxPrice } },
+          ],
+        };
+
+    const products = await Product.find(criteria, {}, { skip, limit }).sort({
       [sortBy]: order,
     });
 
