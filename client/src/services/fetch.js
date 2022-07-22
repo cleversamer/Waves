@@ -2,13 +2,7 @@ import axios from "axios";
 import config from "config.json";
 
 // General purposes
-const fetchAllProducts = (
-  pagination,
-  filter,
-  onSuccess,
-  onError,
-  onFinish = () => {}
-) => {
+const fetchAllProducts = (pagination, filter, onSuccess, onError, onFinish) => {
   const url = `${config.server.url}${config.server.routes.getAllProducts}`;
   return axios
     .get(url, { params: { ...pagination, ...filter } })
@@ -23,14 +17,26 @@ export const fetchAllBrands = (onSuccess, onError) => {
 };
 
 // Specific purposes
-export const fetchProductsBySold = (onSuccess, onError) => {
+export const fetchProductsBySold = (onSuccess, onError, onFinish) => {
   const pagination = config.query.products["bySold"];
-  return fetchAllProducts(pagination, { fetchAll: true }, onSuccess, onError);
+  return fetchAllProducts(
+    pagination,
+    { fetchAll: true },
+    onSuccess,
+    onError,
+    onFinish
+  );
 };
 
-export const fetchProductsByDate = (onSuccess, onError) => {
+export const fetchProductsByDate = (onSuccess, onError, onFinish) => {
   const pagination = config.query.products["byDate"];
-  return fetchAllProducts(pagination, { fetchAll: true }, onSuccess, onError);
+  return fetchAllProducts(
+    pagination,
+    { fetchAll: true },
+    onSuccess,
+    onError,
+    onFinish
+  );
 };
 
 export const fetchPaginatedProducts = (

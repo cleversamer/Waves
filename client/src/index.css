@@ -13,7 +13,7 @@ a:hover {
 
 .root_loader {
   text-align: center;
-  margin: 60px;
+  margin: 60px auto;
   width: fit-content;
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -22,14 +22,20 @@ const Home = () => {
   const dispatch = useDispatch();
   const producutsBySold = useSelector(selectProductsBySold());
   const producutsByDate = useSelector(selectProductsByDate());
+  const [loading, setLoading] = useState({ byDate: false, bySold: false });
 
   useEffect(() => {
+    setLoading({ byDate: true, bySold: true });
+
     fetch.fetchProductsByDate(
       (res) => {
         dispatch(addProductsByDate(res.data));
       },
       (err) => {
         toast.showError(`${err.message}: ${config.errors.fetch.products}`);
+      },
+      () => {
+        setLoading({ ...loading, byDate: false });
       }
     );
 
@@ -39,6 +45,9 @@ const Home = () => {
       },
       (err) => {
         toast.showError(`${err.message}: ${config.errors.fetch.products}`);
+      },
+      () => {
+        setLoading({ ...loading, bySold: false });
       }
     );
   }, []);
@@ -56,7 +65,11 @@ const Home = () => {
       <Featured />
 
       {producutsBySold ? (
-        <CardBlock items={producutsBySold} title="Best selling guitars" />
+        <CardBlock
+          loading={loading.bySold}
+          items={producutsBySold}
+          title="Best selling guitars"
+        />
       ) : (
         <Loader />
       )}
@@ -65,6 +78,7 @@ const Home = () => {
 
       {producutsByDate ? (
         <CardBlock
+          loading={loading.byDate}
           items={producutsByDate}
           title="Latests guitars on the shop"
         />
