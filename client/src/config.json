@@ -42,6 +42,9 @@
         "limit": 4,
         "sortBy": "date",
         "order": -1
+      },
+      "paginated": {
+        "defaultLimit": 6
       }
     }
   },

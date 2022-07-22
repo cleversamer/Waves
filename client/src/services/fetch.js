@@ -1,29 +1,44 @@
 import axios from "axios";
-import query from "utils/query";
 import config from "config.json";
 
 // General purposes
-const fetchAllProducts = (typeKey, queryParams, onSuccess, onError) => {
-  const baseUrl = `${config.server.url}${config.server.routes.getAllProducts}`;
-  const queryString = query(queryParams || config.query.products[typeKey]);
-  const url = `${baseUrl}?${queryString}`;
-  return axios.get(url).then(onSuccess).catch(onError);
-};
-
-// Specific purposes
-export const fetchProductsBySold = (onSuccess, onError) => {
-  return fetchAllProducts("bySold", null, onSuccess, onError);
-};
-
-export const fetchProductsByDate = (onSuccess, onError) => {
-  return fetchAllProducts("byDate", null, onSuccess, onError);
-};
-
-export const fetchPaginatedProducts = (pagination, onSuccess, onError) => {
-  return fetchAllProducts(null, pagination, onSuccess, onError);
+const fetchAllProducts = (
+  pagination,
+  filter,
+  onSuccess,
+  onError,
+  onFinish = () => {}
+) => {
+  const url = `${config.server.url}${config.server.routes.getAllProducts}`;
+  return axios
+    .get(url, { params: { ...pagination, ...filter } })
+    .then(onSuccess)
+    .catch(onError)
+    .finally(onFinish);
 };
 
 export const fetchAllBrands = (onSuccess, onError) => {
   const url = `${config.server.url}${config.server.routes.getAllBrands}`;
   return axios.get(url).then(onSuccess).catch(onError);
+};
+
+// Specific purposes
+export const fetchProductsBySold = (onSuccess, onError) => {
+  const pagination = config.query.products["bySold"];
+  return fetchAllProducts(pagination, { fetchAll: true }, onSuccess, onError);
+};
+
+export const fetchProductsByDate = (onSuccess, onError) => {
+  const pagination = config.query.products["byDate"];
+  return fetchAllProducts(pagination, { fetchAll: true }, onSuccess, onError);
+};
+
+export const fetchPaginatedProducts = (
+  pagination,
+  filter,
+  onSuccess,
+  onError,
+  onFinish
+) => {
+  return fetchAllProducts(pagination, filter, onSuccess, onError, onFinish);
 };

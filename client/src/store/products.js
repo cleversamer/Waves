@@ -20,11 +20,19 @@ const slice = createSlice({
     productsAddedByDate: (products, action) => {
       products.byDate = action.payload.data;
     },
+
+    productsDeleted: (products, action) => {
+      products[action.payload.data.sliceKey] = [];
+    },
   },
 });
 
-const { productsPaginated, productsAddedBySold, productsAddedByDate } =
-  slice.actions;
+const {
+  productsPaginated,
+  productsAddedBySold,
+  productsAddedByDate,
+  productsDeleted,
+} = slice.actions;
 
 export const addPaginatedProducts = (products) => {
   return productsPaginated({ data: products });
@@ -38,6 +46,10 @@ export const addProductsBySold = (products) => {
   return productsAddedBySold({ data: products });
 };
 
+export const deleteProducts = (sliceKey) => {
+  return productsDeleted({ data: { sliceKey } });
+};
+
 export const selectProductsByDate = () => {
   return createSelector(
     (state) => state.products,
@@ -49,6 +61,13 @@ export const selectProductsBySold = () => {
   return createSelector(
     (state) => state.products,
     (products) => products.bySold
+  );
+};
+
+export const selectPaginatedProducts = () => {
+  return createSelector(
+    (state) => state.products,
+    (products) => products.paginated
   );
 };
 
