@@ -59,7 +59,7 @@ const Shop = () => {
         <div className="shop_wrapper">
           <div className="left">
             <CollapseCheckbox
-              initState={true}
+              initState={false}
               title="Brands"
               list={brands}
               //   handleFilters={(filters) => handleFilters(filters, "brands")}

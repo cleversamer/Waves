@@ -841,7 +841,13 @@ footer .business_nfo .nfo {
 }
 
 .shop_wrapper .right {
+  flex: 1;
   max-width: 800px;
+}
+
+.shop_wrapper .right .root_loader {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .collapse_items_wrapper .MuiList-root {
