@@ -3,6 +3,7 @@ const { ApiError } = require("../middleware/apiError");
 const httpStatus = require("http-status");
 const config = require("../config.json");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 
 module.exports.findUserByEmail = async (email) => {
   try {
@@ -76,5 +77,32 @@ module.exports.validateToken = async (token) => {
     return jwt.verify(token, process.env["JWT_PRIVATE_KEY"]);
   } catch (err) {
     throw err;
+  }
+};
+
+module.exports.addItemToCart = async (req) => {
+  try {
+    const { itemId } = req.body;
+
+    if (!itemId) {
+      const statusCode = httpStatus.BAD_REQUEST;
+      const message = config.errors.noProductId;
+      throw new ApiError(statusCode, message);
+    }
+
+    if (!mongoose.isValidObjectId(itemId)) {
+      const statusCode = httpStatus.BAD_REQUEST;
+      const message = config.errors.invalidObjectId;
+      throw new ApiError(statusCode, message);
+    }
+
+    const user = await User.updateOne(
+      { _id: req.user._id },
+      { $push: { cart: itemId } }
+    );
+
+    return user;
+  } catch (err) {
+    next(err);
   }
 };

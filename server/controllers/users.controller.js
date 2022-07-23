@@ -60,3 +60,12 @@ module.exports.verifyAccount = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.addItemToCart = async (req, res, next) => {
+  try {
+    const user = await usersService.addItemToCart(req);
+    res.status(httpStatus.CREATED).json(user);
+  } catch (err) {
+    next(err);
+  }
+};

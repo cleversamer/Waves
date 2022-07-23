@@ -38,7 +38,9 @@
     "noSites": "No sites found in the database.",
     "userVerified": "User is alredy verified.",
     "noPaginationFilter": "You have to specify 'skip' and 'limit' to process your query.",
-    "invalidPaginationFilter": "You have to specify 'skip' and 'limit' as numbers."
+    "invalidPaginationFilter": "You have to specify 'skip' and 'limit' as numbers.",
+    "noProductId": "Please specify a product ID.",
+    "invalidObjectId": "Invalid product ID."
   },
   "email": {
     "name": "***",

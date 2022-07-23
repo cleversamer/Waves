@@ -14,6 +14,10 @@ router.patch(
   usersController.updateEmail
 );
 
+router
+  .route("/cart")
+  .post([auth("updateOwn", "cart")], usersController.addItemToCart);
+
 router.get("/verify", usersController.verifyAccount);
 
 module.exports = router;
