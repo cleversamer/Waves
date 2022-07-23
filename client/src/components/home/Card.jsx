@@ -1,7 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart, selectUserAuth } from "store/user";
+
 import WavesButton from "components/common/WavesButton";
+import * as toast from "services/toast";
 import config from "config.json";
 
 const Card = (props) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userAuth = useSelector(selectUserAuth);
+
   const renderCardImage = (images) => {
     if (images.length > 0) {
       return images[0];
@@ -11,7 +20,13 @@ const Card = (props) => {
   };
 
   const handleAddToCart = (item) => {
-    alert("add to cart");
+    if (userAuth) {
+      dispatch(addItemToCart(item));
+      toast.showSuccess(config.messages.itemAddedToCart);
+    } else {
+      navigate(config.routes.login);
+      toast.showError(config.errors.auth.itemAddedToCart);
+    }
   };
 
   return (

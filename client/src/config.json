@@ -68,13 +68,15 @@
       }
     },
     "auth": {
-      "tokenExpired": "Session expired, please login!"
+      "tokenExpired": "Session expired, please login!",
+      "itemAddedToCart": "Please login to add items to your cart."
     }
   },
   "messages": {
     "login": "Welcome to the Waves!",
     "logout": "Logged out successfully!",
     "profileUpdated": "Profile updated successfully!",
-    "emailUpdated": "Email updated successfully!"
+    "emailUpdated": "Email updated successfully!",
+    "itemAddedToCart": "Item added to your cart!"
   }
 }

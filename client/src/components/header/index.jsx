@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUserAuth, logoutUser } from "store/user";
+import { selectUserAuth, selectUserCart, logoutUser } from "store/user";
 import * as auth from "services/auth";
 import * as toast from "services/toast";
 import config from "config.json";
@@ -8,6 +8,7 @@ import config from "config.json";
 const Header = () => {
   const dispatch = useDispatch();
   const userAuth = useSelector(selectUserAuth);
+  const cart = useSelector(selectUserCart);
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -27,7 +28,7 @@ const Header = () => {
             {userAuth ? (
               <>
                 <div className="cart_link">
-                  <span>1</span>
+                  <span>{cart?.length || 0}</span>
                   <Link to={config.routes.cart}>cart</Link>
                 </div>
 

@@ -28,6 +28,10 @@ const slice = createSlice({
     userEmailUpdated: (user, action) => {
       user.data.email = action.payload.data.newEmail;
     },
+
+    itemAddedToCart: (user, action) => {
+      user.cart.push(action.payload.data);
+    },
   },
 });
 
@@ -36,6 +40,7 @@ const {
   userLoggedOut,
   userProfileUpdated,
   userEmailUpdated,
+  itemAddedToCart,
 } = slice.actions;
 
 export const authUser = (user) => {
@@ -52,6 +57,10 @@ export const updateUserProfile = (data) => {
 
 export const updateUserEmail = (data) => {
   return userEmailUpdated({ data });
+};
+
+export const addItemToCart = (item) => {
+  return itemAddedToCart({ data: item });
 };
 
 export const selectUserData = createSelector(
