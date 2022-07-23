@@ -6,7 +6,6 @@ const slice = createSlice({
   initialState: {
     data: null,
     auth: false,
-    cart: [],
   },
   reducers: {
     userAuthenticated: (user, action) => {
@@ -30,7 +29,7 @@ const slice = createSlice({
     },
 
     itemAddedToCart: (user, action) => {
-      user.cart.push(action.payload.data);
+      user.data.cart.push(action.payload.data);
     },
   },
 });
@@ -70,7 +69,7 @@ export const selectUserData = createSelector(
 
 export const selectUserCart = createSelector(
   (state) => state.user,
-  (user) => user.cart
+  (user) => user.data?.cart
 );
 
 export const selectUserAuth = createSelector(

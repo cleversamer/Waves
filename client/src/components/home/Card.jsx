@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, selectUserAuth } from "store/user";
 
 import WavesButton from "components/common/WavesButton";
+
+import * as userService from "services/user";
 import * as toast from "services/toast";
 import config from "config.json";
 
@@ -20,13 +22,22 @@ const Card = (props) => {
   };
 
   const handleAddToCart = (item) => {
-    if (userAuth) {
-      dispatch(addItemToCart(item));
-      toast.showSuccess(config.messages.itemAddedToCart);
-    } else {
+    if (!userAuth) {
       navigate(config.routes.login);
       toast.showError(config.errors.auth.itemAddedToCart);
+      return;
     }
+
+    userService.addItemToCart(
+      item,
+      (res) => {
+        dispatch(addItemToCart(item));
+        toast.showSuccess(config.messages.itemAddedToCart);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   };
 
   return (

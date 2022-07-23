@@ -8,7 +8,8 @@
       "register": "/api/auth/register",
       "isAuth": "/api/auth/isauth",
       "updateProfile": "/api/users/profile",
-      "updateEmail": "/api/users/email"
+      "updateEmail": "/api/users/email",
+      "addItemToCart": "/api/users/cart"
     }
   },
   "routes": {

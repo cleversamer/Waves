@@ -35,3 +35,20 @@ export const updateUserEmail = (values, onSuccess, onError, onFinish) => {
     .catch(onError)
     .finally(onFinish);
 };
+
+export const addItemToCart = (item, onSuccess, onError) => {
+  const url = `${config.server.url}${config.server.routes.addItemToCart}`;
+  return axios({
+    method: "POST",
+    url,
+    headers: {
+      ...auth.defaultHeaders,
+      ...auth.getAuthHeader(),
+    },
+    data: {
+      itemId: item._id,
+    },
+  })
+    .then(onSuccess)
+    .catch(onError);
+};
