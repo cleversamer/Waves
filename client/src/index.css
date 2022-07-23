@@ -900,6 +900,10 @@ footer .business_nfo .nfo {
       PRODUCT DETAIL
 ==============================*/
 
+.product_detail_container {
+  display: flex;
+}
+
 .product_detail_wrapper {
   display: flex;
   margin-bottom: 140px;
@@ -908,7 +912,7 @@ footer .business_nfo .nfo {
 
 .product_detail_wrapper .right {
   flex-grow: 1;
-  min-height: 800px;
+  min-height: fit-content;
 }
 
 .product_detail_wrapper .left div {
@@ -917,6 +921,7 @@ footer .business_nfo .nfo {
 
 .product_detail_wrapper .left div img {
   width: 400px;
+  max-width: 90vw;
 }
 
 .slick-slide .img-block {
@@ -1033,6 +1038,26 @@ footer .business_nfo .nfo {
 
 .paypal_button_container {
   margin: 10px 0px;
+}
+
+@media screen and (max-width: 767px) {
+  .product_detail_wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 50px;
+  }
+
+  .product_detail_wrapper .left div {
+    padding: 0;
+  }
+
+  .product_detail_wrapper .left {
+    max-width: fit-content;
+    margin: 0 auto;
+  }
 }
 
 /*=============================

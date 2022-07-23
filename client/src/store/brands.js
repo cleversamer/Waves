@@ -24,4 +24,11 @@ export const selectBrands = createSelector(
   (brands) => brands.list
 );
 
+export const selectBrandById = (brandId) => {
+  return createSelector(
+    (state) => state.brands,
+    (brands) => brands.list.find((brand) => brand._id === brandId)
+  );
+};
+
 export default slice.reducer;

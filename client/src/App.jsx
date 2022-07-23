@@ -12,6 +12,7 @@ import Register from "pages/auth/register";
 import Dashboard from "pages/dashboard";
 import UserInfo from "pages/dashboard/user/Info";
 import Shop from "pages/shop";
+import ProductDetail from "pages/product";
 
 import Header from "components/header";
 import Footer from "components/footer";
@@ -53,6 +54,10 @@ const App = () => {
           </>
         )}
 
+        <Route
+          path={`${config.routes.productDetails}/:id`}
+          element={<ProductDetail />}
+        />
         <Route path={config.routes.shop} element={<Shop />} />
         <Route path={config.routes.register} element={<Register />} />
         <Route path={config.routes.login} element={<Login />} />

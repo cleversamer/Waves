@@ -71,4 +71,12 @@ export const selectPaginatedProducts = () => {
   );
 };
 
+export const selectProductById = (productId) => {
+  return createSelector(
+    (state) => state.products,
+    (products) =>
+      products.paginated.find((product) => product._id === productId)
+  );
+};
+
 export default slice.reducer;
