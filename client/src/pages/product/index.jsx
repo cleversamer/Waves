@@ -1,21 +1,30 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-import { useDispatch, useSelector } from "react-redux";
-import { selectProductById } from "store/products";
 
 import Loader from "components/common/Loader";
 import ProductInfo from "components/product/ProductInfo";
 
+import * as fetch from "services/fetch";
+import * as toast from "services/toast";
 import config from "config.json";
 
 const ProductDetail = (props) => {
-  const dispatch = useDispatch();
   const params = useParams();
-  const product = useSelector(selectProductById(params.id));
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    fetch.fetchProductById(
+      params.id,
+      (res) => {
+        setProduct(res.data);
+      },
+      (err) => toast.showError(err.response.data.message)
+    );
+  }, []);
 
   const renderCardImage = (images) => {
-    return images.length > 0 ? images[0] : config.paths.notAvailableImage;
+    return images?.length > 0 ? images[0] : config.paths.notAvailableImage;
   };
 
   return (

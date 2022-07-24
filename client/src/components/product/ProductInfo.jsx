@@ -76,7 +76,7 @@ const ProductInfo = (props) => {
   return (
     <div>
       <h1>
-        <span style={{ textTransform: "capitalize" }}>{brand.name}</span>{" "}
+        <span style={{ textTransform: "capitalize" }}>{brand?.name}</span>{" "}
         <span>{detail.model}</span>
       </h1>
 

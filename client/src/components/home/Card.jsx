@@ -15,6 +15,7 @@ const Card = (props) => {
 
   const renderCardImage = (images) => {
     if (images.length > 0) {
+      console.log(images);
       return images[0];
     } else {
       return config.paths.notAvailableImage;
