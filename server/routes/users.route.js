@@ -16,7 +16,8 @@ router.patch(
 
 router
   .route("/cart")
-  .post([auth("updateOwn", "cart")], usersController.addItemToCart);
+  .post([auth("updateOwn", "cart")], usersController.addItemToCart)
+  .delete(auth("updateOwn", "cart"), usersController.removeCartItem);
 
 router.get("/verify", usersController.verifyAccount);
 

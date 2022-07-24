@@ -69,3 +69,12 @@ module.exports.addItemToCart = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.removeCartItem = async (req, res, next) => {
+  try {
+    const user = await usersService.removeCartItem(req);
+    res.status(httpStatus.CREATED).json(user);
+  } catch (err) {
+    next(err);
+  }
+};

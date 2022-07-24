@@ -103,6 +103,37 @@ module.exports.addItemToCart = async (req) => {
 
     return user;
   } catch (err) {
-    next(err);
+    throw err;
+  }
+};
+
+module.exports.removeCartItem = async (req) => {
+  try {
+    const { itemId } = req.body;
+
+    if (!itemId) {
+      const statusCode = httpStatus.BAD_REQUEST;
+      const message = config.errors.noProductId;
+      throw new ApiError(statusCode, message);
+    }
+
+    if (!mongoose.isValidObjectId(itemId)) {
+      const statusCode = httpStatus.BAD_REQUEST;
+      const message = config.errors.invalidObjectId;
+      throw new ApiError(statusCode, message);
+    }
+
+    const user = req.user;
+    const index = req.user.cart.findIndex((item) => item === itemId);
+    if (index === -1) {
+      return user;
+    }
+
+    user.cart.splice(index, 1);
+    await user.save();
+
+    return user;
+  } catch (err) {
+    throw err;
   }
 };
