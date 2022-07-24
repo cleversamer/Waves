@@ -3,6 +3,7 @@
     "url": "http://192.168.1.235:4000",
     "routes": {
       "getAllProducts": "/api/products",
+      "getProduct": "/api/products",
       "getAllBrands": "/api/brands",
       "login": "/api/auth/signin",
       "register": "/api/auth/register",

@@ -29,7 +29,18 @@ const slice = createSlice({
     },
 
     itemAddedToCart: (user, action) => {
-      user.data.cart.push(action.payload.data);
+      const item = action.payload.data;
+      user.data.cart.push(item);
+    },
+
+    cartItemRemoved: (user, action) => {
+      const itemId = action.payload.data;
+      const index = user.data.cart.findIndex((item) => item === itemId);
+      if (index === -1) {
+        return;
+      }
+
+      user.data.cart.splice(index, 1);
     },
   },
 });
@@ -40,6 +51,7 @@ const {
   userProfileUpdated,
   userEmailUpdated,
   itemAddedToCart,
+  cartItemRemoved,
 } = slice.actions;
 
 export const authUser = (user) => {
@@ -60,6 +72,10 @@ export const updateUserEmail = (data) => {
 
 export const addItemToCart = (item) => {
   return itemAddedToCart({ data: item });
+};
+
+export const removeCartItem = (itemId) => {
+  return cartItemRemoved({ data: itemId });
 };
 
 export const selectUserData = createSelector(

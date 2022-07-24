@@ -13,6 +13,7 @@ import Dashboard from "pages/dashboard";
 import UserInfo from "pages/dashboard/user/Info";
 import Shop from "pages/shop";
 import ProductDetail from "pages/product";
+import UserCart from "pages/dashboard/user/Cart";
 
 import Header from "components/header";
 import Footer from "components/footer";
@@ -49,6 +50,7 @@ const App = () => {
       <Routes>
         {userAuth && (
           <>
+            <Route path={config.routes.cart} element={<UserCart />} />
             <Route path={config.routes.userInfo} element={<UserInfo />} />
             <Route path={config.routes.dashboard} element={<Dashboard />} />
           </>

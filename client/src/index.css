@@ -1229,15 +1229,17 @@ footer .business_nfo .nfo {
 
 .user_product_block {
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   background: white;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ebebeb;
+  box-sizing: border-box;
 }
 
 .user_product_block .item {
-  flex-grow: 1;
+  flex: 1;
 }
 
 .user_product_block .item .image {
@@ -1248,7 +1250,9 @@ footer .business_nfo .nfo {
   margin-right: 10px;
 }
 .user_product_block .item.btn {
-  width: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user_product_block .cart_remove_btn {
@@ -1257,7 +1261,11 @@ footer .business_nfo .nfo {
   display: inline-block;
   padding: 5px 10px;
   color: #ffffff;
-  margin-top: 50px;
+  transition: all 167ms;
+}
+
+.user_product_block .cart_remove_btn:active {
+  transform: scale(0.98);
 }
 
 .article_form {
@@ -1306,6 +1314,21 @@ footer .business_nfo .nfo {
     text-align: left;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .user_product_block {
+    flex-direction: column;
+  }
+
+  .user_product_block .item.btn {
+    margin-top: 20px;
+  }
+
+  .user_product_block .item .image {
+    margin: 0 auto;
+    width: 70vw;
+    height: 70vw;
+    object-fit: contain;
   }
 }
 

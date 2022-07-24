@@ -52,3 +52,20 @@ export const addItemToCart = (item, onSuccess, onError) => {
     .then(onSuccess)
     .catch(onError);
 };
+
+export const removeCartItem = (item, onSuccess, onError) => {
+  const url = `${config.server.url}${config.server.routes.addItemToCart}`;
+  return axios({
+    method: "DELETE",
+    url,
+    headers: {
+      ...auth.defaultHeaders,
+      ...auth.getAuthHeader(),
+    },
+    data: {
+      itemId: item,
+    },
+  })
+    .then(onSuccess)
+    .catch(onError);
+};

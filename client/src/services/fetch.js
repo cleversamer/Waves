@@ -48,3 +48,8 @@ export const fetchPaginatedProducts = (
 ) => {
   return fetchAllProducts(pagination, filter, onSuccess, onError, onFinish);
 };
+
+export const fetchProductById = (productId, onSuccess, onError) => {
+  const url = `${config.server.url}${config.server.routes.getProduct}/${productId}`;
+  return axios.get(url).then(onSuccess).catch(onError);
+};
