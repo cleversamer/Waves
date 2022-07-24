@@ -2,7 +2,7 @@
 
 ## 🔴 Live Demo
 
-[Click here...]("https://samer-waves.web.app/")
+[Click here...](https://samer-waves.web.app/)
 
 ## Description
 
