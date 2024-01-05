@@ -56,7 +56,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [cleversamerr/Waves](https://github.com/cleversamerr/Waves)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|42<br/>Tools used|12/24/23 <br/>Report generated|
+|43<br/>Tools used|01/05/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -267,9 +267,9 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (20)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (21)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (20)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (21)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -293,6 +293,7 @@ Full tech stack [here](/techstack.md)
 |[react-toastify](https://www.npmjs.com/react-toastify)|v9.0.7|07/15/22|Samer A |MIT|N/A|
 |[slick-carousel](https://www.npmjs.com/slick-carousel)|v1.8.1|07/15/22|Samer A |MIT|N/A|
 |[validator](https://www.npmjs.com/validator)|v13.7.0|07/14/22|Samer A |MIT|N/A|
+|[yup](https://www.npmjs.com/yup)|v0.32.11|07/12/22|Samer A |MIT|N/A|
 
 <br/>
 <div align='center'>
